@@ -2,6 +2,7 @@
 error_reporting(0);
 require_once("../../model/php/clientes.models.php");
 
+
 $clientes = new ClaseClientes;
 
 switch ($_GET['op']) {
@@ -9,14 +10,14 @@ switch ($_GET['op']) {
         $datos = array();
         $datos = $clientes->todos();
         while ($fila = mysqli_fetch_assoc($datos)) {
-            $todos[]= $fila;
+            $todos[] = $fila;
         }
         echo json_encode($todos);
         break;
     case "uno":
-        $UsuarioId = $_POST["UsuarioId"];
+        $ClienteId = $_POST["ClienteId"];
         $datos = array();
-        $datos = $clientes->uno($UsuarioId);
+        $datos = $clientes->uno($ClienteId);
         $uno = mysqli_fetch_assoc($datos);
         echo json_encode($uno);
         break;
@@ -29,6 +30,4 @@ switch ($_GET['op']) {
         $datos = $clientes->insertar($Nombre, $telefono, $correo, $mensaje);
         echo json_encode($datos);
         break;
-    
 }
-

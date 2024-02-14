@@ -1,4 +1,5 @@
 <?php
+
 require_once('../../config/conexion.php');
 
 class ClaseClientes{
@@ -16,7 +17,7 @@ class ClaseClientes{
         try {
             $con = new Conectar();
             $con = $con->ProcedimientoConectar();
-            $cadena = "SELECT * FROM clientes WHERE id = $ClienteId";
+            $cadena = "SELECT * FROM clientes WHERE id = $ClienteId;";
             $resultado = mysqli_query($con,$cadena);
     
             return $resultado;
@@ -45,4 +46,3 @@ class ClaseClientes{
     }
     
 }
-?>
